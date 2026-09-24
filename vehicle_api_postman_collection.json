@@ -1,0 +1,265 @@
+{
+	"info": {
+		"name": "Vehicle Inventory & Booking API",
+		"_postman_id": "a82b4c10-8f92-4e9a-9e12-3456789abcde",
+		"description": "Postman Collection for testing Vehicle Inventory & Booking REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "1. List All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", ""]
+						}
+					}
+				},
+				{
+					"name": "2. Create Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Corolla\",\n    \"brand\": \"Toyota\",\n    \"year\": 2024,\n    \"price_per_day\": \"2500.00\",\n    \"fuel_type\": \"Petrol\",\n    \"is_available\": true\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", ""]
+						}
+					}
+				},
+				{
+					"name": "3. Get Vehicle Details (ID 1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/1/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", "1", ""]
+						}
+					}
+				},
+				{
+					"name": "4. Filter Vehicles by Brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/?brand=Toyota",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", ""],
+							"query": [
+								{
+									"key": "brand",
+									"value": "Toyota"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "5. Filter Vehicles by Fuel Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/?fuel_type=Petrol",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", ""],
+							"query": [
+								{
+									"key": "fuel_type",
+									"value": "Petrol"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "6. Filter Vehicles by Availability",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/?is_available=true",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", ""],
+							"query": [
+								{
+									"key": "is_available",
+									"value": "true"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "7. Update Vehicle (PUT ID 1)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Corolla Altis\",\n    \"brand\": \"Toyota\",\n    \"year\": 2025,\n    \"price_per_day\": \"2800.00\",\n    \"fuel_type\": \"Hybrid\",\n    \"is_available\": true\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/1/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", "1", ""]
+						}
+					}
+				},
+				{
+					"name": "8. Delete Vehicle (DELETE ID 1)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/vehicles/1/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["vehicles", "1", ""]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "1. List All Bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/bookings/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["bookings", ""]
+						}
+					}
+				},
+				{
+					"name": "2. Create Booking (Valid)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vehicle\": 1,\n    \"customer_name\": \"Arjun\",\n    \"customer_phone\": \"9876543210\",\n    \"start_date\": \"2026-10-01\",\n    \"end_date\": \"2026-10-05\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/bookings/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["bookings", ""]
+						}
+					}
+				},
+				{
+					"name": "3. Get Booking Details (ID 1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/bookings/1/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["bookings", "1", ""]
+						}
+					}
+				},
+				{
+					"name": "4. Test Invalid Phone Validation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vehicle\": 1,\n    \"customer_name\": \"Arjun\",\n    \"customer_phone\": \"12345\",\n    \"start_date\": \"2026-10-01\",\n    \"end_date\": \"2026-10-05\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/bookings/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["bookings", ""]
+						}
+					}
+				},
+				{
+					"name": "5. Test Past Date Validation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vehicle\": 1,\n    \"customer_name\": \"Arjun\",\n    \"customer_phone\": \"9876543210\",\n    \"start_date\": \"2020-01-01\",\n    \"end_date\": \"2026-10-05\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/bookings/",
+							"protocol": "http",
+							"host": ["127", "0", "0", "1"],
+							"port": "8000",
+							"path": ["bookings", ""]
+						}
+					}
+				}
+			]
+		}
+	]
+}

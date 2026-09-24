@@ -420,7 +420,7 @@ For the requested 2–5 minute demonstration:
 8. Test invalid phone/date validation.
 9. Show vehicle filtering.
 
-Add the video file or a YouTube/Drive link here before submitting.
+**Demo Video:** https://docs.google.com/videos/d/1pcpRXPxCas32-niYy1OUt_6uc6Dy9BTjAKuEL5ehrzI/play?usp=sharing
 
 
 # GitHub
